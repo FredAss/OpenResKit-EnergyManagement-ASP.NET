@@ -1,0 +1,114 @@
+﻿<section>
+    <h2 class="page-title" data-bind="text: title"></h2>
+    <hr>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-8 ">
+            <div class="panel panel-default" style="margin: 0">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <b>
+                            Energiepolitik
+                        </b>
+                    </h3>
+                </div>
+                <div class="panel-body" data-bind="with: energyStrategy">
+                    <span data-bind="visible: !($root.editing()), text: strategy">&nbsp;</span>
+                    <textarea rows="10" style="margin-bottom: 10px; max-width: 100%;" class="form-control input-lg" data-bind="visible: $root.editing(), value: strategy, hasFocus: $root.editing"></textarea>
+                    <button class="btn btn-primary btn-xs pull-right" data-bind="visible: $root.editing(),click: $root.saveStrategy">Speichern</button>
+                    <button class="btn btn-primary btn-xs pull-right" data-bind="visible: !($root.editing()),click: $root.editStrategy">Bearbeiten</button>
+                </div>
+            </div>
+            <hr>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <b>
+                            Energieziele
+                        </b>
+                        <button class="btn btn-primary btn-xs pull-right" data-bind="click: addAim">Hinzufügen</button>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-group" id="accordion" data-bind="foreach: energyAims">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="" data-bind="text: shortAim, attr: { href: '#collapsible' + id() }"></a>
+                                </h3>
+                            </div>
+                            <div data-bind="attr: { id: 'collapsible' + id() }" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p data-bind="text: longAim"></p>
+                                    <div class="btn-group dropup  pull-right">
+                                        <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                            Bearbeiten<span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="" data-bind="click: $root.editAim"><span class="glyphicon glyphicon-edit"></span> Details bearbeiten</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="" data-bind="click: $root.deleteAim"><span class="glyphicon glyphicon-trash"></span> Löschen</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-heading" data-bind="text: numberOfNewIdeas"></p>
+                            <p class="announcement-text">Neue Ideen</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#ideas">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Ideen
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <p class="announcement-heading" data-bind="text: numberOfUnfinishedMeasures"></p>
+                            <p class="announcement-text">Ausstehende Maßnahmen</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#measures">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Maßnahmen
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

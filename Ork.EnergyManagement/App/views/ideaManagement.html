@@ -1,0 +1,46 @@
+﻿<section>
+    <h2 data-bind="html: title"></h2>
+    <hr>
+    <div class="row" style="margin-top: 20px">     
+        <div class="col-md-12 ">
+            <button class="btn btn-primary" data-bind="click: addIdea">Neue Idee</button>
+            <table id="ideaTable" class='table tablesorter-bootstrap table-hover table-striped'>
+                <thead class="pointable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Beschreibung</th>
+                        <th>Erstellt von</th>
+                        <th>Erstellt am</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: ideas">
+                    <tr>
+                        <td data-bind="text: ShortDescription"></td>
+                        <td data-bind="ideaStatus: Status"></td>
+                        <td data-bind="substring: LongDescription"></td>
+                        <td data-bind="text: Creator"></td>
+                        <td data-bind="date: CreationDate"></td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                    Bearbeiten<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="" data-bind="click: $root.editIdea"><span class="glyphicon glyphicon-edit"></span> Details bearbeiten</a></li>
+                                    <li><a href="" data-bind="click: $root.createMeasure"><span class="glyphicon glyphicon-share"></span> zu Maßnahme überführen</a></li>
+                                    <li><a href="" data-bind="click: $root.rejectIdea"><span class="glyphicon glyphicon-thumbs-down"></span> Ablehnen</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="" data-bind="click: $root.deleteIdea"><span class="glyphicon glyphicon-trash"></span> Löschen</a></li>
+                                    <!--<button data-bind="click: $root.editIdea" class="btn btn-primary btn-sm">Details</button>-->
+                                </ul>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

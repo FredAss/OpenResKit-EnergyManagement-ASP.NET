@@ -1,0 +1,112 @@
+﻿<div class="messageBox">
+    <div class="modal-header">
+        <button type="button" class="close" data-bind="click: close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 data-bind="text: title"></h2>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <form class="form-horizontal" role="form">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="name" data-bind="value: name, enable: isEditable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="description" class="col-md-4 control-label">Beschreibung</label>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="description" data-bind="value: description, enable: isEditable"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" id="dueDateDatepickerGroup">
+                            <label for="dueDateDatepicker" class="col-md-4 control-label">Planungsdatum</label>
+                            <div class="col-md-8 input-group" style="padding: 0px 15px 0px 15px">
+                                <input id="dueDateDatepicker" class="form-control " type="text" data-bind="value: dueDate, enable: isEditable" style="cursor: pointer" readonly="readonly">
+
+                                <span class="input-group-addon" id="dueDateAddon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="responsibleSubject" class="col-md-4 control-label">Verantwortlicher</label>
+                            <div class="col-md-8">
+                                <select id="responsibleSubject" class="form-control" data-bind="options: responsibleSubjects, optionsText: function(item) {return $root.getName(item)}, value: responsibleSubject , enable: isEditable"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="priority" class="col-md-4 control-label">Priorität</label>
+                            <div class="col-md-8">
+                                <select id="priority" class="form-control" data-bind="value: priority , enable: isEditable">
+                                    <option value="0">Niedrig</option>
+                                    <option value="1">Mittel</option>
+                                    <option value="2">Hoch</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="verticalLine"></div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="status" class="col-md-4 control-label">Status</label>
+                            <div class="col-md-8">
+                                <select id="status" class="form-control" data-bind="value: status">
+                                    <option value="0">Angelegt</option>
+                                    <option value="1">Laufend</option>
+                                    <option value="2">Abgeschlossen</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" id="entryDateDatepickerGroup">
+                            <label for="entryDateDatepicker" class="col-md-4 control-label">Erfüllt am</label>
+                            <div class="col-md-8 input-group" style="padding: 0px 15px 0px 15px">
+                                <input id="entryDateDatepicker" class="form-control input-group date" type="text" style="cursor: pointer" data-bind="value: entryDate, enable: !isEditable()" readonly="readonly">
+
+                                <span class="input-group-addon" id="entryDateAddon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="evaluation" class="col-md-4 control-label">Bewertung</label>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="evaluation" data-bind="value: evaluation , enable: !isEditable()" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="evaluationRating" class="col-md-4 control-label">Effizienz</label>                       
+                            <div id="evaluationRating" data-disable="" style="padding-top: 9px" class="col-md-8" data-bind="starRating: evaluationRating, attr: {'data-disable': !isEditable()}">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-bind="click: close">Schließen</button>
+            <button class="btn btn-primary" data-bind="click: save">Speichern</button>
+        </div>
+    </div>
+</div>

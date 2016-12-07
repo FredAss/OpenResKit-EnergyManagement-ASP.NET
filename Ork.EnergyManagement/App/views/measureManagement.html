@@ -1,0 +1,57 @@
+﻿<section>
+    <h2 data-bind="html: title"></h2>
+    <hr>
+    <div class="row" style="margin-top: 20px">
+        <div class=" col-md-2">
+            <div class="panel panel-default">
+
+                <div class="panel-heading" style="font-size: 18px"><span class="glyphicon glyphicon-folder-open"></span> Kataloge</div>
+                <ul class="nav nav-pills nav-stacked" data-bind="foreach: catalogs" style="max-height: 780px; overflow-y: auto;">
+                    <li data-bind="click: function(data){ $root.onCatalogClick(data)} , css: {active: $data == $root.selectedCatalog()}"><a href="#" data-bind="text: Name"></a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-10">
+            <button class="btn btn-primary" data-bind="click: addMeasure">Neue Maßnahme</button>
+            <div>
+                <table id="measuresTable" class='table tablesorter-bootstrap table-hover table-striped' data-bind="with: selectedCatalog">
+                    <thead class="pointable">
+                        <tr>
+                            <th >Name</th>
+                            <th>Geplant am</th>
+                            <th>Erfüllt am</th>
+                            <th >Status</th>
+                            <th >Priorität</th>
+                            <th >Verantwortlicher</th>
+                            <th >Erstellt am</th>
+                            <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Measures">
+                        <tr>
+                            <td data-bind="text: Name"></td>
+                            <td data-bind="html: $root.getDueDate(DueDate, Status)"></td>
+                            <td data-bind="date: EntryDate"></td>
+                            <td data-bind="measureStatus: Status"></td>
+                            <td data-bind="priority: Priority"></td>
+                            <td data-bind="responsibleSubject: ResponsibleSubject"></td>
+                            <td data-bind="date: CreationDate"></td>
+                          <td><div class="btn-group">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                  Bearbeiten<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="" data-bind="click: $root.editMeasure"><span class="glyphicon glyphicon-edit"></span> Details bearbeiten</a></li>                                                      
+                                  <li class="divider"></li>
+                                  <li><a href="" data-bind="click: $root.deleteMeasure"><span class="glyphicon glyphicon-trash"></span> Löschen</a></li>
+                                </ul>
+                              </div>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+﻿<div class="messageBox">
+    <div class="modal-header">
+        <button type="button" class="close" data-bind="click: close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 data-bind="text: title"></h2>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <fieldset class="form-horizontal">
+                <legend>Vorschlag</legend>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="title" class="col-md-4 control-label">Titel</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="title" data-bind="value: shortDescription" style="max-width: 100%">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="longDescription" class="col-md-4 control-label">Problem</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="longDescription" data-bind="value: longDescription" style="max-width: 100%">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="solution" class="col-md-4 control-label">Lösung</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control" id="solution" data-bind="value: solution" style="max-width: 100%"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-horizontal">
+                <legend>Persönlichen Daten</legend>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">Vorname</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="firstName" data-bind="value: firstName" style="max-width: 100%" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Nachname</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="lastName" data-bind="value: lastName" style="max-width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-bind="click: close">Schließen</button>
+            <button class="btn btn-primary" data-bind="click: save">Speichern</button>
+        </div>
+    </div>
+</div>

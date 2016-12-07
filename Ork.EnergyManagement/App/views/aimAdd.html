@@ -1,0 +1,31 @@
+﻿<div class="messageBox" style="width: auto">
+    <div class="modal-header">
+        <button type="button" class="close" data-bind="click: close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 data-bind="text: title"></h2>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <fieldset class="form-horizontal">  
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="shortAim" class="col-md-3 control-label">Titel</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="shortAim" data-bind="value: shortAim" style="max-width: 100%">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="longAim" class="col-md-3 control-label">Beschreibung</label>
+                        <div class="col-md-9">
+                            <textarea  class="form-control" id="longAim" data-bind="value: longAim" style="max-width: 100%; min-width: 400px;"></textarea>
+
+                        </div>
+                    </div>            
+                </div>
+            </fieldset>           
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-bind="click: close">Schließen</button>
+            <button class="btn btn-primary" data-bind="click: save">Speichern</button>
+        </div>
+    </div>
+</div>
